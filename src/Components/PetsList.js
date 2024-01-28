@@ -10,9 +10,17 @@ function PetsList() {
   const [query, setQuery] = useState('');
   const [type, setType] = useState('');
 
-  const filteredPets = pets.filter(pet => pet.name.toLowerCase().includes(query.toLowerCase())) && (type === '' || pet.type.toLowerCase() === type.toLocaleLowerCase());
+
+  const filteredPets = pets.filter(
+  (pet) =>
+   pet.name.toLowerCase().includes(query.toLowerCase()) && 
+   (type === '' || pet.type.toLowerCase() === type.toLocaleLowerCase())
+   );
+
   const petList = filteredPets.map((pet) => <PetItem pet={pet} key={pet.id} />);
 
+
+  
   const handleSearchChange = (event) => {
     setQuery(event.target.value);
   };
